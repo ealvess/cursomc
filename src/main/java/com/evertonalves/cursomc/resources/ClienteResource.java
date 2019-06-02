@@ -19,6 +19,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.evertonalves.cursomc.domain.Cliente;
 import com.evertonalves.cursomc.dto.ClienteDTO;
+import com.evertonalves.cursomc.dto.ClienteNewDTO;
 import com.evertonalves.cursomc.services.ClienteService;
 
 @RestController
@@ -38,7 +39,7 @@ public class ClienteResource {
 	
 	//INSERINDO UMA NOVA CATEGORIA
 		@RequestMapping(method = RequestMethod.POST)
-		public ResponseEntity<Void> insert(@Valid @RequestBody ClienteDTO objDTO) {
+		public ResponseEntity<Void> insert(@Valid @RequestBody ClienteNewDTO objDTO) {
 			Cliente obj =  service.fromDTO(objDTO);
 			
 			obj = service.insert(obj);
