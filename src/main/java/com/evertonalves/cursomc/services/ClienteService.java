@@ -34,7 +34,8 @@ public class ClienteService {
 	}
 	
 	public Cliente update(Cliente obj){
-		buscar(obj.getId());
+		Cliente newObj = buscar(obj.getId());
+		updateData(newObj, obj);
 		return repo.save(obj);
 	}
 	
