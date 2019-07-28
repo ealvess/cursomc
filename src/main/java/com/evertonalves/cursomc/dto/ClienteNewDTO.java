@@ -2,20 +2,43 @@ package com.evertonalves.cursomc.dto;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.Length;
+
+import com.evertonalves.cursomc.services.validation.ClienteInsert;
+
+@ClienteInsert
 public class ClienteNewDTO implements Serializable  {
 	private static final long serialVersionUID = 1L;
 	
+	@NotEmpty(message="Prenchimento Obrigatório.")
+	@Length(min=5, max=120, message="O tamanho deve ser de 5 a 120 caracteres.")
 	private String nome;
+	
+	@NotEmpty(message="Prenchimento Obrigatório.")
+	@Email(message="Email Obrigatório.")
 	private String email;
+	
+	@NotEmpty(message="Prenchimento Obrigatório.")
 	private String cpfOuCnpj;
+	
 	private Integer tipo;
 	
+	@NotEmpty(message="Prenchimento Obrigatório.")
 	private String logradouro;
+	
+	@NotEmpty(message="Prenchimento Obrigatório.")
 	private String numero;
+	
 	private String complemento;
 	private String bairro;
+	
+	@NotEmpty(message="Prenchimento Obrigatório.")
 	private String cep;
 	
+	@NotEmpty(message="Prenchimento Obrigatório.")
 	private String telefone1;
 	private String telefone2;
 	private String telefone3;
