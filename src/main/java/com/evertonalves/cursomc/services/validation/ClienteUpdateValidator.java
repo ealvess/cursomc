@@ -12,11 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerMapping;
 
 import com.evertonalves.cursomc.domain.Cliente;
-import com.evertonalves.cursomc.domain.enums.TipoCliente;
 import com.evertonalves.cursomc.dto.ClienteDTO;
 import com.evertonalves.cursomc.repositories.ClienteRepository;
 import com.evertonalves.cursomc.resources.exception.FieldMessage;
-import com.evertonalves.cursomc.services.validation.utils.BR;
 
 public class ClienteUpdateValidator implements ConstraintValidator<ClienteUpdate, ClienteDTO> {
 	
