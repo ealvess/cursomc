@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.evertonalves.cursomc.domain.Cliente;
@@ -92,4 +93,11 @@ public class ClienteResource {
 			return ResponseEntity.ok().body(listDTO);
 		}
 	
+
+		//ENVIANDO FOTO DE PERFIL DO USUÁRIO PARA O AMAZON S3
+			@RequestMapping(value="/picture" , method = RequestMethod.POST)
+			public ResponseEntity<Void> uploadProfilePicture(@RequestParam(name="file") MultipartFile file) {
+				URI uri = service.uploadProfilePicture(file);
+				return ResponseEntity.created(uri).build();
+			}
 }
